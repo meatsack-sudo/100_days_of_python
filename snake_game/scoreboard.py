@@ -4,7 +4,7 @@ class Scoreboard(Turtle):
 
     def __init__(self):
         super().__init__()
-        with open("/home/meatsack/Desktop/python_100_days/100_days_of_python/snake_game/data.txt") as data:
+        with open("snake_game\\data.txt") as data:
             self.highscore = int(data.read())
         self.score = 0
         print(self.highscore)
