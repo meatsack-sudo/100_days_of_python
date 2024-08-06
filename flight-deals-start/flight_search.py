@@ -34,7 +34,22 @@ class FlightSearch:
 
         flight_offer_response = requests.get(url=flight_offer_endpoint, params=price_params, headers=airport_search_header)
         
-        return flight_offer_response.json() 
+        if flight_offer_response.status_code == 200:
+            flight_offer_json = flight_offer_response.json()
+            if not flight_offer_json["data"]:
+                print(
+                    f"No offers were found for destination IATA code of {iata} on {departure_date}"
+                    )
+            else:
+                print(
+                    f"===== An offer has been found!! ====="
+                    f"\n_____________________________________"
+                    f"\nNumber of seats available: {flight_offer_json['data'][0]['numberOfBookableSeats']}"
+                    f"\nFlight Duration: {flight_offer_json['data'][0]['itineraries'][0]['duration']}"
+                    f"\nDeparture: {flight_offer_json['data'][0]['itineraries'][0]['segments'][0]['departure']['at']}\n"
+                )
+
+        #print(flight_offer_response.json())
 
     def test_print(self):
         
