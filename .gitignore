@@ -1,2 +1,3 @@
 #Ignore .enf file
 .env
+config.yaml
