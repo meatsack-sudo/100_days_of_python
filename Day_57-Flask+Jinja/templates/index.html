@@ -1,0 +1,17 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>My website</title>
+    </head>
+    <body>
+        <p>Hello world</p>
+        <h1>Let's throw some python in here:</h1>
+        <l>{{ 5 * 6 }}</l>
+        <h2>Let's throw some python variables in here:</h2>
+        <l>random_number: {{ random_number }}</l>
+    <a href="{{ url_for('get_blog', num=3) }}">Go To Blog</a>"
+    </body>
+    <footer>
+        <p>Copyright {{ current_year }}</p>
+    </footer>
+</html>
